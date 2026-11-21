@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NebulaFX</title>
+  <meta name="description" content="Documentation de NebulaFX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body class="docs-page">
+
+  <div class="bg" aria-hidden="true">
+    <div class="beam"></div>
+    <div class="glow"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <header class="nav solid wide" id="nav">
+    <div class="nav-inner">
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><i data-icon="menu"></i></button>
+      <a class="brand" href="index.html"><span class="brand-mark" data-logo></span>NebulaFX</a>
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="docs.html" class="active" data-i18n="nav.docs">Documentation</a>
+        <a href="#api" data-i18n="nav.api">API</a>
+        <a href="#ref-modules" data-i18n="nav.modules">Modules</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <button class="search-trigger" id="searchBtn">
+        <i data-icon="search"></i>
+        <span data-i18n="d.search">Rechercher…</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+      <div class="lang" id="lang"></div>
+    </div>
+    <div class="progress" id="progress"></div>
+  </header>
+
+  <div class="docs">
+    <aside class="sidebar" id="sidebar">
+      <div class="sb-wip"><i data-icon="construction"></i><span data-i18n="d.wip"></span></div>
+      <div id="sbNav"></div>
+      <span class="sb-indicator" id="sbIndicator"></span>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <main class="content" id="content" data-lang-fade>
+      <article class="doc" id="doc" aria-live="polite"></article>
+    </main>
+
+    <aside class="toc" id="toc"></aside>
+  </div>
+
+  <div class="palette" id="palette" role="dialog" aria-modal="true" hidden>
+    <div class="palette-panel">
+      <div class="palette-input">
+        <i data-icon="search"></i>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:d.searchPh">
+        <kbd data-i18n="d.esc">Échap</kbd>
+      </div>
+      <div class="palette-results" id="results" role="listbox"></div>
+    </div>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="i18n.js"></script>
+  <script src="common.js"></script>
+  <script src="docs.js"></script>
+</body>
+</html>
