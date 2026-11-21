@@ -1,2 +1,230 @@
-# Wyvas.github.io
-Showcase
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NebulaFX</title>
+  <meta name="description" content="NebulaFX apporte le Niagara System d'Unreal Engine 5 dans Roblox Studio. En développement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <div class="beam"></div>
+    <div class="glow"></div>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" data-logo></span>NebulaFX</a>
+      <nav class="nav-links">
+        <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
+        <a href="#code" data-i18n="nav.ingame">En jeu</a>
+        <a href="#templates" data-i18n="nav.templates">Modèles</a>
+        <a href="docs.html" data-i18n="nav.docs">Documentation</a>
+      </nav>
+      <span class="nav-spacer"></span>
+      <span class="soon"><i data-icon="hourglass"></i><span class="shimmer" data-i18n="nav.soon">Bientôt disponible</span></span>
+      <div class="lang" id="lang"></div>
+    </div>
+  </header>
+
+  <main data-lang-fade>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <div class="hero-copy" id="heroCopy">
+        <h1 class="title" id="heroTitle" data-i18n="hero.title">Le Niagara System d'UE5, <em>sur Roblox Studio.</em></h1>
+        <p class="subtitle reveal" style="--d:.85s" data-i18n="hero.sub"></p>
+        <div class="hero-cta reveal" style="--d:1s">
+          <a class="btn magnetic" href="docs.html"><span data-i18n="hero.docs">Documentation</span><i data-icon="arrow-right" class="arrow"></i></a>
+        </div>
+        <p class="wip reveal" style="--d:1.15s"><i data-icon="construction"></i><span class="shimmer" data-i18n="hero.wip"></span></p>
+      </div>
+
+      <div class="stage-scroll" id="stageScroll">
+        <div class="stage" id="stage">
+          <div class="card" id="card">
+            <div id="pvHost"></div>
+            <div class="spot" aria-hidden="true"></div>
+            <div class="glare" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="pv-bar reveal" style="--d:1.6s" id="pvBar"></div>
+        <p class="pv-note reveal" style="--d:1.75s"><i data-icon="construction"></i><span data-i18n="hero.caption"></span></p>
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <div class="stats r">
+      <div class="stat"><b data-count="modules">90</b><span data-i18n="stat.modules"></span></div>
+      <div class="stat"><b data-count="templates">76</b><span data-i18n="stat.templates"></span></div>
+      <div class="stat"><b data-count="renderers">6</b><span data-i18n="stat.renderers"></span></div>
+      <div class="stat"><b data-count="nodes">46</b><span data-i18n="stat.nodes"></span></div>
+      <div class="stat"><b>6</b><span data-i18n="stat.langs"></span></div>
+    </div>
+
+    <!-- ================= FONCTIONNALITÉS ================= -->
+    <section class="section" id="features">
+      <div class="section-head r">
+        <h2 data-split data-i18n="feat.title"></h2>
+        <p data-i18n="feat.sub"></p>
+      </div>
+
+      <div class="bento">
+        <article class="tile span-2 r">
+          <div class="viz sliders" aria-hidden="true">
+            <div class="sl"><span data-i18n="f.sl.qty"></span><i><b style="--a:30%;--b:78%"></b></i><em>120/s</em></div>
+            <div class="sl"><span data-i18n="f.sl.grav"></span><i><b style="--a:70%;--b:24%;--dl:.6s"></b></i><em>−40</em></div>
+            <div class="sl"><span data-i18n="f.sl.glow"></span><i><b style="--a:45%;--b:90%;--dl:1.2s"></b></i><em>×3</em></div>
+          </div>
+          <h3 data-i18n="f.simple.t"></h3>
+          <p data-i18n="f.simple.p"></p>
+        </article>
+
+        <article class="tile r" style="--d:.08s">
+          <div class="viz pills" aria-hidden="true">
+            <span class="pill" style="--c:var(--c-fixed);--i:0" data-i18n="v.fixed"></span>
+            <span class="pill" style="--c:var(--c-random);--i:1" data-i18n="v.random"></span>
+            <span class="pill" style="--c:var(--c-curve);--i:2" data-i18n="v.curve"></span>
+            <span class="pill" style="--c:var(--c-link);--i:3" data-i18n="v.link"></span>
+            <span class="pill" style="--c:var(--c-expr);--i:4" data-i18n="v.expr"></span>
+          </div>
+          <h3 data-i18n="f.values.t"></h3>
+          <p data-i18n="f.values.p"></p>
+        </article>
+
+        <article class="tile r">
+          <div class="viz viz-gpu" aria-hidden="true">
+            <div class="particles" id="particles"></div>
+            <div class="seg"><span>CPU</span><span>GPU</span></div>
+          </div>
+          <h3 data-i18n="f.gpu.t"></h3>
+          <p data-i18n="f.gpu.p"></p>
+        </article>
+
+        <article class="tile span-2 r" style="--d:.08s">
+          <div class="viz" aria-hidden="true">
+            <div class="tl">
+              <div class="tl-ruler"></div>
+              <div class="tl-track a">Sparks ∞</div>
+              <div class="tl-track b">Smoke</div>
+              <div class="tl-keys"><i style="left:18%"></i><i style="left:41%"></i><i style="left:63%"></i><i style="left:86%"></i></div>
+              <div class="tl-head"></div>
+            </div>
+          </div>
+          <h3 data-i18n="f.tl.t"></h3>
+          <p data-i18n="f.tl.p"></p>
+        </article>
+
+        <article class="tile r">
+          <div class="viz" aria-hidden="true">
+            <svg class="graph" viewBox="0 0 300 128" preserveAspectRatio="xMidYMid meet">
+              <rect class="n" x="6" y="14" width="84" height="40" rx="9"/><text class="t" x="16" y="38">Engine.Time</text><circle class="pin" cx="90" cy="34" r="3.5"/>
+              <rect class="n" x="6" y="74" width="84" height="40" rx="9"/><text class="t" x="16" y="98">Noise</text><circle class="pin v" cx="90" cy="94" r="3.5"/>
+              <rect class="n" x="118" y="44" width="72" height="40" rx="9"/><text class="t" x="130" y="68">Multiply</text><circle class="pin" cx="118" cy="64" r="3.5"/><circle class="pin v" cx="190" cy="64" r="3.5"/>
+              <rect class="n" x="214" y="44" width="80" height="40" rx="9"/><text class="t" x="224" y="68">Add Force</text><circle class="pin v" cx="214" cy="64" r="3.5"/>
+              <path class="w" d="M90 34 C105 34 103 64 118 64"/><path class="w" d="M90 94 C105 94 103 64 118 64"/><path class="w" d="M190 64 L214 64"/>
+              <path class="flow" d="M90 34 C105 34 103 64 118 64 L190 64 L214 64"/>
+            </svg>
+          </div>
+          <h3 data-i18n="f.scratch.t"></h3>
+          <p data-i18n="f.scratch.p"></p>
+        </article>
+
+        <article class="tile r" style="--d:.08s">
+          <div class="ico"><i data-icon="arrow-left-right" data-draw></i></div>
+          <h3 data-i18n="f.events.t"></h3>
+          <p data-i18n="f.events.p"></p>
+        </article>
+
+        <article class="tile r" style="--d:.16s">
+          <div class="ico"><i data-icon="radio-tower" data-draw></i></div>
+          <h3 data-i18n="f.net.t"></h3>
+          <p data-i18n="f.net.p"></p>
+        </article>
+
+        <article class="tile span-3 r">
+          <div class="ico"><i data-icon="gauge" data-draw></i></div>
+          <h3 data-i18n="f.perf.t"></h3>
+          <p data-i18n="f.perf.p"></p>
+          <div class="perf">
+            <div><i data-icon="recycle" data-draw></i><b data-i18n="p.pool.t"></b><span data-i18n="p.pool.p"></span></div>
+            <div><i data-icon="telescope" data-draw></i><b data-i18n="p.lod.t"></b><span data-i18n="p.lod.p"></span></div>
+            <div><i data-icon="activity" data-draw></i><b data-i18n="p.budget.t"></b><span data-i18n="p.budget.p"></span></div>
+            <div><i data-icon="layers" data-draw></i><b data-i18n="p.batch.t"></b><span data-i18n="p.batch.p"></span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= CODE ================= -->
+    <section class="section" id="code">
+      <div class="split">
+        <div class="r">
+          <h2 data-split data-i18n="code.title"></h2>
+          <p class="lead" data-i18n="code.lead"></p>
+          <ol class="steps-mini">
+            <li><span class="step-ico"><i data-icon="save" data-draw></i></span><span data-i18n="code.s1"></span></li>
+            <li><span class="step-ico"><i data-icon="download" data-draw></i></span><span data-i18n="code.s2"></span></li>
+            <li><span class="step-ico"><i data-icon="play" data-draw></i></span><span data-i18n="code.s3"></span></li>
+          </ol>
+        </div>
+        <div class="window r" style="--d:.12s">
+          <div class="window-bar">
+            <span class="tab-pill" id="tabPill"></span>
+            <button class="tab on" data-tab="0">LocalScript</button>
+            <button class="tab" data-tab="1" data-i18n="code.tab.server">Serveur</button>
+            <button class="tab" data-tab="2">Data Channel</button>
+            <span class="file"><i data-icon="file-code"></i><span id="file">StarterPlayerScripts</span></span>
+          </div>
+          <div class="code-panes" id="panes"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MODÈLES ================= -->
+    <section class="section" id="templates">
+      <div class="section-head r">
+        <h2 data-split data-i18n="tpl.title"></h2>
+        <p data-i18n="tpl.sub"></p>
+      </div>
+      <div class="marquee r" id="marquee"></div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="section">
+      <div class="cta r spotlight">
+        <div class="cta-logo" data-logo></div>
+        <h2 data-split data-i18n="cta.title"></h2>
+        <p data-i18n="cta.p"></p>
+        <div class="hero-cta">
+          <a class="btn magnetic" href="docs.html"><span data-i18n="cta.btn"></span><i data-icon="arrow-right" class="arrow"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="index.html"><span class="brand-mark" data-logo></span>NebulaFX</a>
+    <span class="foot-wip"><i data-icon="construction"></i><span data-i18n="foot.wip"></span></span>
+    <nav>
+      <a href="docs.html" data-i18n="nav.docs"></a>
+      <a href="docs.html#api" data-i18n="nav.api"></a>
+      <a href="docs.html#faq">FAQ</a>
+    </nav>
+  </footer>
+
+  <script src="icons.js"></script>
+  <script src="i18n.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="common.js"></script>
+  <script src="preview.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
